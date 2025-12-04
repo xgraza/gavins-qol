@@ -7,11 +7,11 @@ package rated.x.module.clickgui.elements;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import org.lwjgl.glfw.GLFW;
+import rated.x.BuildConfig;
 import rated.x.RatedX;
 import rated.x.gui.GUIEditorScreen;
 import rated.x.module.ModuleCategory;
 import rated.x.module.clickgui.Component;
-import rated.x.qol.BuildConfig;
 
 import java.awt.Color;
 import java.util.ArrayList;
