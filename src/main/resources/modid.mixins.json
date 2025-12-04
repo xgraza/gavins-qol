@@ -1,11 +1,14 @@
 {
   "required": true,
-  "package": "rated.x.mixin",
+  "package": "rated.x.mixin.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "MixinGui",
     "MixinKeyboardHandler",
     "MixinLightTexture",
-    "MixinLocalPlayer"
+    "MixinLivingEntity",
+    "MixinLocalPlayer",
+    "MixinToastManager"
   ],
   "injectors": {
     "defaultRequire": 1

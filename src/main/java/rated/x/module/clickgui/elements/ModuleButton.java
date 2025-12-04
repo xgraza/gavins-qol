@@ -2,12 +2,12 @@
  * Copyright (c) xgraza 2025
  */
 
-package rated.x.gui.clickgui.elements;
+package rated.x.module.clickgui.elements;
 
 import net.minecraft.client.gui.GuiGraphics;
 import org.lwjgl.glfw.GLFW;
-import rated.x.gui.clickgui.Component;
 import rated.x.module.Module;
+import rated.x.module.clickgui.Component;
 
 import java.awt.Color;
 

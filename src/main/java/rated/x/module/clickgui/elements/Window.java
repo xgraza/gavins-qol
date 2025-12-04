@@ -2,13 +2,13 @@
  * Copyright (c) xgraza 2025
  */
 
-package rated.x.gui.clickgui.elements;
+package rated.x.module.clickgui.elements;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import org.lwjgl.glfw.GLFW;
-import rated.x.gui.clickgui.Component;
 import rated.x.module.ModuleCategory;
+import rated.x.module.clickgui.Component;
 import rated.x.qol.BuildConfig;
 
 import java.awt.Color;
@@ -78,7 +78,7 @@ public final class Window extends Component
                 (int) (modulePane.getX() + modulePane.getWidth()),
                 (int) (modulePane.getY() + modulePane.getHeight()));
         modulePane.render(graphics, mouseX, mouseY);
-        
+
         graphics.disableScissor();
     }
 

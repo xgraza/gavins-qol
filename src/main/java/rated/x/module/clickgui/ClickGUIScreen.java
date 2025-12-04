@@ -2,13 +2,13 @@
  * Copyright (c) xgraza 2025
  */
 
-package rated.x.gui.clickgui;
+package rated.x.module.clickgui;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
-import rated.x.gui.clickgui.elements.Window;
+import rated.x.module.clickgui.elements.Window;
 
 /**
  * @author xgraza

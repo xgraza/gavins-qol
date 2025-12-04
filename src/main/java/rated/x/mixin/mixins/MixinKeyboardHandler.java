@@ -2,7 +2,7 @@
  * Copyright (c) xgraza 2025
  */
 
-package rated.x.mixin;
+package rated.x.mixin.mixins;
 
 import net.minecraft.client.KeyboardHandler;
 import net.minecraft.client.Minecraft;

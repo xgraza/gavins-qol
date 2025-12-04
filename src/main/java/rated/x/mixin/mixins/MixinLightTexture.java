@@ -2,7 +2,7 @@
  * Copyright (c) xgraza 2025
  */
 
-package rated.x.mixin;
+package rated.x.mixin.mixins;
 
 import net.minecraft.client.renderer.LightTexture;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,7 +22,7 @@ public final class MixinLightTexture
             at = @At(
                     value = "INVOKE",
                     target = "Ljava/lang/Double;floatValue()F"))
-    private float redirect_ratedx$updateLightTexture(final Double gammaInstance)
+    private float redirect_ratedX$updateLightTexture(final Double gammaInstance)
     {
         final float gamma = gammaInstance.floatValue();
         final EventGamma event = new EventGamma(gamma);

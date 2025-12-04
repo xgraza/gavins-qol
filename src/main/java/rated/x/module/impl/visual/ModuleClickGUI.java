@@ -5,10 +5,10 @@
 package rated.x.module.impl.visual;
 
 import org.lwjgl.glfw.GLFW;
-import rated.x.gui.clickgui.ClickGUIScreen;
 import rated.x.module.Module;
 import rated.x.module.ModuleCategory;
 import rated.x.module.ModuleManifest;
+import rated.x.module.clickgui.ClickGUIScreen;
 
 /**
  * @author xgraza

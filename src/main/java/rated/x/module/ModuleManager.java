@@ -6,7 +6,12 @@ package rated.x.module;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rated.x.gui.GUIManager;
+import rated.x.gui.GUIModule;
 import rated.x.input.InputManager;
+import rated.x.module.impl.player.ModuleSprint;
+import rated.x.module.impl.tweaks.ModuleNoToasts;
+import rated.x.module.impl.visual.ModuleArmorDisplay;
 import rated.x.module.impl.visual.ModuleClickGUI;
 import rated.x.module.impl.visual.ModuleFullbright;
 
@@ -25,17 +30,28 @@ public final class ModuleManager
 
     private final Map<Class<? extends Module>, Module> moduleInstanceMap = new LinkedHashMap<>();
     private final List<Module> moduleList = new LinkedList<>();
-    private InputManager inputManager;
 
-    public void init(final InputManager inputManager)
+    private InputManager inputManager;
+    private GUIManager guiManager;
+
+    public void init(final InputManager inputManager, final GUIManager guiManager)
     {
         this.inputManager = inputManager;
-        addModule(new ModuleFullbright());
+        this.guiManager = guiManager;
+        addModules();
+    }
+
+    private void addModules()
+    {
+        addModule(new ModuleSprint());
+        addModule(new ModuleNoToasts());
+        addModule(new ModuleArmorDisplay());
         addModule(new ModuleClickGUI());
+        addModule(new ModuleFullbright());
         LOGGER.info("Registered {} modules", moduleList.size());
     }
 
-    private void addModule(final Module module)
+    public void addModule(final Module module)
     {
         try
         {
@@ -48,6 +64,10 @@ public final class ModuleManager
         }
         moduleInstanceMap.put(module.getClass(), module);
         moduleList.add(module);
+        if (module instanceof GUIModule)
+        {
+            guiManager.addModule((GUIModule) module);
+        }
     }
 
     public List<Module> getModules()
