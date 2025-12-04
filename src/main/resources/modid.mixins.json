@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "rated.x.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "MixinKeyboardHandler",
+    "MixinLocalPlayer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

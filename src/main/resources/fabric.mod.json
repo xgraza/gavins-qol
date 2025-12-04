@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "gavins-qol",
+  "version": "${version}",
+  "name": "Gavin's QOL",
+  "description": "My *simple* quality of life features for Fabric Minecraft - no cheats, just features",
+  "authors": [
+    "xgraza"
+  ],
+  "contact": {
+    "homepage": "https://github.com/xgraza/gavins-qol",
+    "sources": "https://github.com/xgraza/gavins-qol/README.md"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "rated.x.QOLModEntrypoint"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.3",
+    "minecraft": "~1.21.10",
+    "java": ">=21"
+  }
+}
