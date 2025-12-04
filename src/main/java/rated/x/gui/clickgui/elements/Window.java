@@ -51,6 +51,8 @@ public final class Window extends Component
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY)
     {
+        graphics.enableScissor((int) x, (int) y, (int) (x + width), (int) (y + height));
+
         graphics.fill((int) x, (int) y, (int) (x + width), (int) (y + height), BACKGROUND_COLOR);
         graphics.drawString(font, "Rated" + ChatFormatting.LIGHT_PURPLE + "X", (int) (x + 8), (int) (y + 10), -1);
         graphics.drawString(font, "v" + BuildConfig.VERSION + "_" + BuildConfig.BUILD + "-" + BuildConfig.BRANCH + "/" + BuildConfig.HASH, (int) (x + 4), (int) (y + height - 12), 0xFFBBBBBB);
@@ -71,7 +73,13 @@ public final class Window extends Component
         modulePane.setY(y + 25);
         modulePane.setWidth(width - 8);
         modulePane.setHeight(height - 40);
+        graphics.enableScissor((int) modulePane.getX(),
+                (int) modulePane.getY(),
+                (int) (modulePane.getX() + modulePane.getWidth()),
+                (int) (modulePane.getY() + modulePane.getHeight()));
         modulePane.render(graphics, mouseX, mouseY);
+        
+        graphics.disableScissor();
     }
 
     @Override
