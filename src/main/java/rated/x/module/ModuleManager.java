@@ -6,6 +6,7 @@ package rated.x.module;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rated.x.config.ConfigManager;
 import rated.x.gui.GUIManager;
 import rated.x.gui.GUIModule;
 import rated.x.input.InputManager;
@@ -14,7 +15,9 @@ import rated.x.module.impl.tweaks.ModuleNoToasts;
 import rated.x.module.impl.visual.ModuleArmorDisplay;
 import rated.x.module.impl.visual.ModuleClickGUI;
 import rated.x.module.impl.visual.ModuleFullbright;
+import rated.x.util.FileUtil;
 
+import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,14 +33,22 @@ public final class ModuleManager
 
     private final Map<Class<? extends Module>, Module> moduleInstanceMap = new LinkedHashMap<>();
     private final List<Module> moduleList = new LinkedList<>();
+    private File configDirectory;
 
+    private ConfigManager configManager;
     private InputManager inputManager;
     private GUIManager guiManager;
 
-    public void init(final InputManager inputManager, final GUIManager guiManager)
+    public void init(final ConfigManager configManager,
+                     final InputManager inputManager,
+                     final GUIManager guiManager)
     {
+        this.configManager = configManager;
         this.inputManager = inputManager;
         this.guiManager = guiManager;
+
+        configDirectory = FileUtil.createNewRootDirectory("modules");
+
         addModules();
     }
 
@@ -68,10 +79,16 @@ public final class ModuleManager
         {
             guiManager.addModule((GUIModule) module);
         }
+        configManager.addConfig(module);
     }
 
     public List<Module> getModules()
     {
         return moduleList;
+    }
+
+    public File getConfigDirectory()
+    {
+        return configDirectory;
     }
 }

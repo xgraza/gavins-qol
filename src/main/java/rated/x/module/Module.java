@@ -4,18 +4,23 @@
 
 package rated.x.module;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
 import rated.x.RatedX;
+import rated.x.config.IConfig;
 import rated.x.input.Input;
 import rated.x.input.InputHandler;
 import rated.x.module.property.PropertyContainer;
+
+import java.io.File;
 
 /**
  * @author xgraza
  * @since 1.0.0
  */
-public class Module extends PropertyContainer implements InputHandler
+public class Module extends PropertyContainer implements InputHandler, IConfig
 {
     static final String NO_DESCRIPTION = "No description was provided for this module";
 
@@ -75,5 +80,34 @@ public class Module extends PropertyContainer implements InputHandler
     public ModuleManifest getManifest()
     {
         return manifest;
+    }
+
+    @Override
+    public JsonElement toJSON()
+    {
+        final JsonObject object = new JsonObject();
+        object.addProperty("enabled", enabled);
+        return object;
+    }
+
+    @Override
+    public void fromJSON(final JsonElement element)
+    {
+        if (!element.isJsonObject())
+        {
+            return;
+        }
+        final JsonObject object = element.getAsJsonObject();
+        if (object.has("enabled"))
+        {
+            setEnabled(object.get("enabled").getAsBoolean());
+        }
+    }
+
+    @Override
+    public File getLocation()
+    {
+        return new File(RatedX.INSTANCE.getModuleManager().getConfigDirectory(),
+                manifest.name() + ".json");
     }
 }

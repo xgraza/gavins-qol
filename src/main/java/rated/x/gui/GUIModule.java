@@ -4,6 +4,8 @@
 
 package rated.x.gui;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import net.minecraft.client.gui.GuiGraphics;
 import rated.x.module.Module;
 
@@ -94,5 +96,29 @@ public class GUIModule extends Module implements IComponent
     public void setHeight(double height)
     {
         this.height = height;
+    }
+
+    @Override
+    public JsonElement toJSON()
+    {
+        final JsonObject object = (JsonObject) super.toJSON();
+        final JsonObject positionObject = new JsonObject();
+        positionObject.addProperty("posX", x);
+        positionObject.addProperty("posY", y);
+        object.add("position", positionObject);
+        return object;
+    }
+
+    @Override
+    public void fromJSON(final JsonElement element)
+    {
+        super.fromJSON(element);
+        if (element.isJsonObject())
+        {
+            final JsonObject object = element.getAsJsonObject();
+            final JsonObject positionObject = object.getAsJsonObject("position");
+            setX(positionObject.get("posX").getAsDouble());
+            setY(positionObject.get("posY").getAsDouble());
+        }
     }
 }
