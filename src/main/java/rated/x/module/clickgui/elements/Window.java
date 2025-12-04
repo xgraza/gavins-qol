@@ -7,6 +7,8 @@ package rated.x.module.clickgui.elements;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import org.lwjgl.glfw.GLFW;
+import rated.x.RatedX;
+import rated.x.gui.GUIEditorScreen;
 import rated.x.module.ModuleCategory;
 import rated.x.module.clickgui.Component;
 import rated.x.qol.BuildConfig;
@@ -24,6 +26,8 @@ public final class Window extends Component
     private static final int BACKGROUND_COLOR = new Color(25, 25, 25).getRGB();
 
     private final List<CategoryTab> tabList = new ArrayList<>();
+    private final GuiEditorButton editorButton;
+
     private CategoryTab selectedTab;
     private ModulePane modulePane;
 
@@ -46,6 +50,7 @@ public final class Window extends Component
             }
             tabList.add(categoryTab);
         }
+        editorButton = new GuiEditorButton(0, 0, 0, 0);
     }
 
     @Override
@@ -69,6 +74,12 @@ public final class Window extends Component
             posX += categoryTab.getWidth() + 4;
         }
 
+        editorButton.setX((x + width) - editorButton.getWidth() - 2);
+        editorButton.setY(y + height - editorButton.getHeight() - 2);
+        editorButton.setWidth(60);
+        editorButton.setHeight(12);
+        editorButton.render(graphics, mouseX, mouseY);
+
         modulePane.setX(x + 4);
         modulePane.setY(y + 25);
         modulePane.setWidth(width - 8);
@@ -87,6 +98,11 @@ public final class Window extends Component
     {
         if (button == GLFW.GLFW_MOUSE_BUTTON_1)
         {
+            if (editorButton.isMouseIn(x, y))
+            {
+                editorButton.mouseClick(x, y, button);
+                return;
+            }
             for (final CategoryTab categoryTab : tabList)
             {
                 if (categoryTab.isMouseIn(x, y))
@@ -100,6 +116,30 @@ public final class Window extends Component
             }
         }
         modulePane.mouseClick(x, y, button);
+    }
+
+    static final class GuiEditorButton extends Component
+    {
+        private static final int BACKGROUND_COLOR = new Color(35, 35, 35).getRGB();
+
+        public GuiEditorButton(double x, double y, double width, double height)
+        {
+            super(x, y, width, height);
+        }
+
+        @Override
+        public void render(GuiGraphics graphics, int mouseX, int mouseY)
+        {
+            graphics.fill((int) x, (int) y, (int) (x + width), (int) (y + height), BACKGROUND_COLOR);
+            graphics.submitOutline((int) x, (int) y, (int) (width), (int) (height), 0xFFAAAAAA);
+            graphics.drawString(font, "GUI Editor", (int) x + 6, (int) y + 2, -1);
+        }
+
+        @Override
+        public void mouseClick(double x, double y, int button)
+        {
+            MC.setScreen(new GUIEditorScreen(RatedX.INSTANCE.getGUIManager()));
+        }
     }
 
     static final class CategoryTab extends Component

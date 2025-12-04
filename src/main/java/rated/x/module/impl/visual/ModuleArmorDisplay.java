@@ -35,7 +35,7 @@ public final class ModuleArmorDisplay extends GUIModule
         super.render(graphics, screenWidth, screenHeight, preview);
 
         setHeight((18 * 5) + 4);
-        setWidth(100);
+        setWidth(60);
 
         final List<ItemStack> equipmentList = getEquipment();
         if (equipmentList.isEmpty())

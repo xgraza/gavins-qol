@@ -32,7 +32,7 @@ public class GUIModule extends Module implements IComponent
     {
         if (x + width > screenWidth)
         {
-            setX(screenHeight - width);
+            setX(screenWidth - width);
         }
         if (y + height > screenHeight)
         {

@@ -4,6 +4,7 @@
 
 package rated.x.gui;
 
+import net.minecraft.client.Minecraft;
 import rated.x.RatedX;
 import rated.x.listener.bus.Listener;
 import rated.x.listener.event.EventRenderHUD;
@@ -19,6 +20,8 @@ import java.util.Map;
  */
 public final class GUIManager
 {
+    private static final Minecraft MC = Minecraft.getInstance();
+
     private final Map<Class<? extends GUIModule>, GUIModule> moduleInstanceMap = new LinkedHashMap<>();
     private final List<GUIModule> moduleList = new LinkedList<>();
 
@@ -30,6 +33,10 @@ public final class GUIManager
     @Listener
     public void onRenderHUD(final EventRenderHUD event)
     {
+        if (MC.screen instanceof GUIEditorScreen)
+        {
+            return;
+        }
         for (final GUIModule guiModule : moduleList)
         {
             if (!guiModule.isEnabled())
