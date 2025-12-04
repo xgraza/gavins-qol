@@ -35,10 +35,11 @@ public final class ModuleClickGUI extends Module
             setEnabled(false);
             return;
         }
-        //if (instance == null)
+        if (instance == null)
         {
             instance = new ClickGUIScreen();
         }
         MC.setScreen(instance);
+        setEnabled(false);
     }
 }

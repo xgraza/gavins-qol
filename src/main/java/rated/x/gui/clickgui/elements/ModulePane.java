@@ -60,40 +60,9 @@ public final class ModulePane extends Component
     @Override
     public void mouseClick(double x, double y, int button)
     {
-
-    }
-
-    static final class ModuleButton extends Component
-    {
-        private static final int BACKGROUND_COLOR = new Color(30, 30, 30).getRGB();
-        private static final int ENABLED_COLOR = new Color(155, 128, 175).getRGB();
-
-        private final Module module;
-
-        public ModuleButton(final Module module, double x, double y, double width, double height)
+        for (final ModuleButton moduleButton : moduleButtonList)
         {
-            super(x, y, width, height);
-            this.module = module;
-        }
-
-        @Override
-        public void render(GuiGraphics graphics, int mouseX, int mouseY)
-        {
-            graphics.fill((int) x, (int) y, (int) (x + width), (int) (y + height), new Color(30, 30, 30).getRGB());
-            graphics.drawString(font, module.getManifest().name(), (int) x + 4, (int) y + 6, -1);
-
-            graphics.pose().pushMatrix();
-            graphics.pose().translate((float) (x + 4), (float) (y + 18));
-            graphics.pose().scale(0.75f, 0.75f);
-            graphics.drawString(font, module.getManifest().description(), 0, 0, 0xFFAAAAAA);
-            graphics.pose().scale(1, 1);
-            graphics.pose().popMatrix();
-        }
-
-        @Override
-        public void mouseClick(double x, double y, int button)
-        {
-
+            moduleButton.mouseClick(x, y, button);
         }
     }
 }

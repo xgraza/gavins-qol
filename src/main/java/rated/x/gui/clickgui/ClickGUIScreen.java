@@ -52,4 +52,10 @@ public final class ClickGUIScreen extends Screen
         window.mouseClick(event.x(), event.y(), event.button());
         return super.mouseClicked(event, down);
     }
+
+    @Override
+    public boolean isPauseScreen()
+    {
+        return false;
+    }
 }

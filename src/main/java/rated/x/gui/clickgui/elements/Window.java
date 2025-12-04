@@ -87,9 +87,11 @@ public final class Window extends Component
                     selectedTab = categoryTab;
                     selectedTab.setSelected(true);
                     modulePane = selectedTab.getModulePane();
+                    return;
                 }
             }
         }
+        modulePane.mouseClick(x, y, button);
     }
 
     static final class CategoryTab extends Component
