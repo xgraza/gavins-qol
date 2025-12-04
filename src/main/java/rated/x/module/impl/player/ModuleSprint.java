@@ -19,13 +19,20 @@ import rated.x.module.ModuleManifest;
         category = ModuleCategory.PLAYER)
 public final class ModuleSprint extends Module
 {
+    @Override
+    public void onDisable()
+    {
+        super.onDisable();
+        if (MC.options == null)
+        {
+            return;
+        }
+        MC.options.keySprint.setDown(false);
+    }
+
     @Listener
     public void onTick(final EventTick event)
     {
-        assert MC.player != null;
-        if (!MC.player.isSprinting())
-        {
-            MC.player.setSprinting(true);
-        }
+        MC.options.keySprint.setDown(true);
     }
 }
