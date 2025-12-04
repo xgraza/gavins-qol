@@ -74,7 +74,7 @@ public final class Window extends Component
             posX += categoryTab.getWidth() + 4;
         }
 
-        editorButton.setX((x + width) - editorButton.getWidth() - 2);
+        editorButton.setX((x + width) - editorButton.getWidth() - 4);
         editorButton.setY(y + height - editorButton.getHeight() - 2);
         editorButton.setWidth(60);
         editorButton.setHeight(12);
