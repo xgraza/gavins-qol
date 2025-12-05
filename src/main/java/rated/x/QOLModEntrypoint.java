@@ -18,11 +18,11 @@ public final class QOLModEntrypoint implements ClientModInitializer
 
     @Override public void onInitializeClient()
     {
-        LOGGER.info("Initializing {} v{}-{}.{}/{}. This build was built at {}",
+        LOGGER.info("Initializing {} v{}_{}-{}/{}. This build was built at {}",
                 BuildConfig.GROUP,
                 BuildConfig.VERSION,
-                BuildConfig.BRANCH,
                 BuildConfig.BUILD,
+                BuildConfig.BRANCH,
                 BuildConfig.HASH,
                 BuildConfig.BUILD_TIME);
         RatedX.INSTANCE.init();
