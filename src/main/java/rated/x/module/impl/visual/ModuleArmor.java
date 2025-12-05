@@ -5,6 +5,7 @@
 package rated.x.module.impl.visual;
 
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityEquipment;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
@@ -21,10 +22,10 @@ import java.util.List;
  * @author xgraza
  * @since 1.0.0
  */
-@ModuleManifest(name = "ArmorDisplay",
+@ModuleManifest(name = "Armor",
         description = "Displays armor and their durability values",
         category = ModuleCategory.VISUAL)
-public final class ModuleArmorDisplay extends GUIModule
+public final class ModuleArmor extends GUIModule
 {
     @Override
     public void render(final GuiGraphics graphics,
@@ -34,7 +35,7 @@ public final class ModuleArmorDisplay extends GUIModule
     {
         super.render(graphics, screenWidth, screenHeight, preview);
 
-        setHeight((18 * 5) + 4);
+        setHeight((18 * 6) + 4);
         setWidth(60);
 
         final List<ItemStack> equipmentList = getEquipment();
@@ -70,6 +71,7 @@ public final class ModuleArmorDisplay extends GUIModule
         equipmentList.add(equipment.get(EquipmentSlot.LEGS));
         equipmentList.add(equipment.get(EquipmentSlot.CHEST));
         equipmentList.add(equipment.get(EquipmentSlot.HEAD));
+        equipmentList.add(MC.player.getItemInHand(InteractionHand.OFF_HAND));
         equipmentList.add(MC.player.getInventory().getSelectedItem());
         equipmentList.removeIf(ItemStack::isEmpty);
         return equipmentList;

@@ -54,8 +54,9 @@ public final class ModuleManager
     {
         addModule(new ModuleSprint());
         addModule(new ModuleNoToasts());
-        addModule(new ModuleArmorDisplay());
+        addModule(new ModuleArmor());
         addModule(new ModuleClickGUI());
+        addModule(new ModuleCoordinates());
         addModule(new ModuleFPS());
         addModule(new ModuleFullbright());
         addModule(new ModulePing());
