@@ -12,9 +12,7 @@ import rated.x.gui.GUIModule;
 import rated.x.input.InputManager;
 import rated.x.module.impl.player.ModuleSprint;
 import rated.x.module.impl.tweaks.ModuleNoToasts;
-import rated.x.module.impl.visual.ModuleArmorDisplay;
-import rated.x.module.impl.visual.ModuleClickGUI;
-import rated.x.module.impl.visual.ModuleFullbright;
+import rated.x.module.impl.visual.*;
 import rated.x.util.FileUtil;
 
 import java.io.File;
@@ -58,7 +56,9 @@ public final class ModuleManager
         addModule(new ModuleNoToasts());
         addModule(new ModuleArmorDisplay());
         addModule(new ModuleClickGUI());
+        addModule(new ModuleFPS());
         addModule(new ModuleFullbright());
+        addModule(new ModulePing());
         LOGGER.info("Registered {} modules", moduleList.size());
     }
 
