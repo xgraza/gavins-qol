@@ -24,19 +24,20 @@ import rated.x.listener.event.EventRenderHUD;
 @Mixin(Gui.class)
 public final class MixinGui
 {
-    @Shadow(aliases = "minecraft")
+    @Shadow
     @Final
-    private Minecraft mc;
+    private Minecraft minecraft;
 
     @Inject(method = "render", at = @At("TAIL"))
     private void hook_ratedX$render(final GuiGraphics guiGraphics,
                                     final DeltaTracker deltaTracker,
                                     final CallbackInfo info)
     {
-        if (mc.options.hideGui)
+        if (minecraft.options.hideGui)
         {
             return;
         }
-        RatedX.EVENT_BUS.dispatch(new EventRenderHUD(guiGraphics, guiGraphics.guiWidth(), guiGraphics.guiWidth()));
+        RatedX.EVENT_BUS.dispatch(new EventRenderHUD(
+                guiGraphics, guiGraphics.guiWidth(), guiGraphics.guiWidth()));
     }
 }

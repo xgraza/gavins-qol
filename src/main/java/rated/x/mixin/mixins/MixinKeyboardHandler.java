@@ -24,9 +24,9 @@ import rated.x.listener.event.EventKeyPress;
 @Mixin(KeyboardHandler.class)
 public final class MixinKeyboardHandler
 {
-    @Shadow(aliases = "minecraft")
+    @Shadow
     @Final
-    private Minecraft mc;
+    private Minecraft minecraft;
 
     @Inject(method = "keyPress", at = @At("HEAD"))
     private void hook_ratedX$keyPress(
@@ -35,10 +35,11 @@ public final class MixinKeyboardHandler
             final KeyEvent event,
             final CallbackInfo info)
     {
-        if (handle != mc.getWindow().handle() || type != GLFW.GLFW_PRESS)
+        if (handle != minecraft.getWindow().handle() || type != GLFW.GLFW_PRESS)
         {
             return;
         }
-        RatedX.EVENT_BUS.dispatch(new EventKeyPress(event.key(), event.modifiers(), event.scancode()));
+        RatedX.EVENT_BUS.dispatch(new EventKeyPress(event.key(),
+                event.modifiers(), event.scancode()));
     }
 }
