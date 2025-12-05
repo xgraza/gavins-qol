@@ -56,6 +56,7 @@ public final class ModuleManager
         addModule(new ModuleNoToasts());
         addModule(new ModuleArmor());
         addModule(new ModuleClickGUI());
+        addModule(new ModuleCompass());
         addModule(new ModuleCoordinates());
         addModule(new ModuleFPS());
         addModule(new ModuleFullbright());

@@ -21,7 +21,7 @@ public class PropertyContainer
         final Field[] fields = getClass().getDeclaredFields();
         for (final Field field : fields)
         {
-            if (!Property.class.isAssignableFrom(field.getType()))
+            if (!Property.class.isAssignableFrom(field.getType()) || !field.trySetAccessible())
             {
                 continue;
             }

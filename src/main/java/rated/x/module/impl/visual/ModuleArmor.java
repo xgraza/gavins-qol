@@ -71,8 +71,8 @@ public final class ModuleArmor extends GUIModule
         equipmentList.add(equipment.get(EquipmentSlot.LEGS));
         equipmentList.add(equipment.get(EquipmentSlot.CHEST));
         equipmentList.add(equipment.get(EquipmentSlot.HEAD));
-        equipmentList.add(MC.player.getItemInHand(InteractionHand.OFF_HAND));
         equipmentList.add(MC.player.getInventory().getSelectedItem());
+        equipmentList.add(MC.player.getItemInHand(InteractionHand.OFF_HAND));
         equipmentList.removeIf(ItemStack::isEmpty);
         return equipmentList;
     }
