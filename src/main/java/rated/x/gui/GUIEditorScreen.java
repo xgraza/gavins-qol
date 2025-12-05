@@ -54,6 +54,12 @@ public final class GUIEditorScreen extends Screen
     }
 
     @Override
+    public void renderBackground(GuiGraphics guiGraphics, int i, int j, float f)
+    {
+        // intentionally empty
+    }
+
+    @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean bl)
     {
         if (event.button() == GLFW.GLFW_MOUSE_BUTTON_1)
@@ -81,5 +87,11 @@ public final class GUIEditorScreen extends Screen
             draggingElement = null;
         }
         return super.mouseReleased(event);
+    }
+
+    @Override
+    public boolean isPauseScreen()
+    {
+        return false;
     }
 }

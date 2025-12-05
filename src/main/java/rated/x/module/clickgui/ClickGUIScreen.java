@@ -47,6 +47,12 @@ public final class ClickGUIScreen extends Screen
     }
 
     @Override
+    public void renderBackground(GuiGraphics guiGraphics, int i, int j, float f)
+    {
+        // intentionally empty
+    }
+
+    @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean down)
     {
         window.mouseClick(event.x(), event.y(), event.button());
