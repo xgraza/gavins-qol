@@ -8,6 +8,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
+import rated.x.RatedX;
 import rated.x.module.clickgui.elements.Window;
 
 /**
@@ -57,6 +58,13 @@ public final class ClickGUIScreen extends Screen
     {
         window.mouseClick(event.x(), event.y(), event.button());
         return super.mouseClicked(event, down);
+    }
+
+    @Override
+    public void onClose()
+    {
+        super.onClose();
+        RatedX.INSTANCE.getConfigManager().save();
     }
 
     @Override
