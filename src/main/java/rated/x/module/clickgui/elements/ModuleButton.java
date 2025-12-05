@@ -50,4 +50,10 @@ public final class ModuleButton extends Component
             module.setEnabled(!module.isEnabled());
         }
     }
+
+    @Override
+    public void mouseScroll(double mouseX, double mouseY, double scroll)
+    {
+        // empty
+    }
 }

@@ -60,6 +60,12 @@ public final class ClickGUIScreen extends Screen
         return super.mouseClicked(event, down);
     }
 
+    @Override public boolean mouseScrolled(double mouseX, double mouseY, double f, double scroll)
+    {
+        window.mouseScroll(mouseX, mouseY, scroll);
+        return super.mouseScrolled(mouseX, mouseX, f, scroll);
+    }
+
     @Override
     public void onClose()
     {

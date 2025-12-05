@@ -23,6 +23,7 @@ public final class ModulePane extends Component
     private static final int BACKGROUND_COLOR = new Color(45, 45, 45).getRGB();
 
     private final List<ModuleButton> moduleButtonList = new LinkedList<>();
+    private double scrollOffset;
 
     public ModulePane(final ModuleCategory category, double x, double y, double width, double height)
     {
@@ -42,9 +43,8 @@ public final class ModulePane extends Component
     public void render(GuiGraphics graphics, int mouseX, int mouseY)
     {
         graphics.fill((int) x, (int) y, (int) (x + width), (int) (y + height), BACKGROUND_COLOR);
-        //graphics.drawString(font, "this is different " + hashCode(), (int) x, (int) y, -1);
 
-        double posY = y + 2;
+        double posY = y + 2 + scrollOffset;
         for (final ModuleButton moduleButton : moduleButtonList)
         {
             moduleButton.setX(x + 4);
@@ -64,5 +64,34 @@ public final class ModulePane extends Component
         {
             moduleButton.mouseClick(x, y, button);
         }
+    }
+
+    @Override
+    public void mouseScroll(double mouseX, double mouseY, double scroll)
+    {
+        if (scroll > 0)
+        {
+            final double startHeight = y + 2;
+            if (startHeight + scrollOffset < startHeight)
+            {
+                scrollOffset += 10;
+            }
+        } else if (scroll < 0)
+        {
+            if (height - getTotalComponentHeight() - scrollOffset <= -10)
+            {
+                scrollOffset -= 10;
+            }
+        }
+    }
+
+    private double getTotalComponentHeight()
+    {
+        double height = 4;
+        for (final ModuleButton moduleButton : moduleButtonList)
+        {
+            height += moduleButton.getHeight() + 1;
+        }
+        return height;
     }
 }

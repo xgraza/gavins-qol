@@ -118,6 +118,15 @@ public final class Window extends Component
         modulePane.mouseClick(x, y, button);
     }
 
+    @Override
+    public void mouseScroll(double mouseX, double mouseY, double scroll)
+    {
+        if (modulePane.isMouseIn(mouseX, mouseY))
+        {
+            modulePane.mouseScroll(mouseX, mouseY, scroll);
+        }
+    }
+
     static final class GuiEditorButton extends Component
     {
         private static final int BACKGROUND_COLOR = new Color(35, 35, 35).getRGB();
@@ -139,6 +148,12 @@ public final class Window extends Component
         public void mouseClick(double x, double y, int button)
         {
             MC.setScreen(new GUIEditorScreen(RatedX.INSTANCE.getGUIManager()));
+        }
+
+        @Override
+        public void mouseScroll(double mouseX, double mouseY, double scroll)
+        {
+            // empty
         }
     }
 
@@ -173,6 +188,12 @@ public final class Window extends Component
         public void mouseClick(double x, double y, int button)
         {
 
+        }
+
+        @Override
+        public void mouseScroll(double mouseX, double mouseY, double scroll)
+        {
+            // empty
         }
 
         public void setSelected(boolean selected)

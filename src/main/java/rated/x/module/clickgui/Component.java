@@ -35,6 +35,8 @@ public abstract class Component implements IComponent
 
     public abstract void mouseClick(final double x, final double y, final int button);
 
+    public abstract void mouseScroll(double mouseX, double mouseY, double scroll);
+
     @Override
     public double getX()
     {
