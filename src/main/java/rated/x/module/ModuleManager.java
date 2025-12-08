@@ -62,6 +62,7 @@ public final class ModuleManager
         addModule(new ModuleFPS());
         addModule(new ModuleFullbright());
         addModule(new ModulePing());
+        addModule(new ModuleZoom());
         LOGGER.info("Registered {} modules", moduleList.size());
     }
 

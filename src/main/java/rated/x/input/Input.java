@@ -12,14 +12,15 @@ public final class Input
 {
     private final InputHandler inputHandler;
     private int key, modifiers;
-    private boolean keyboard = true;
+    private boolean keyboard = true, persistent = true;
 
-    public Input(final InputHandler handler, int key, int modifiers, boolean keyboard)
+    public Input(final InputHandler handler, int key, int modifiers, boolean keyboard, boolean persistent)
     {
         this.inputHandler = handler;
         this.key = key;
         this.modifiers = modifiers;
         this.keyboard = keyboard;
+        this.persistent = persistent;
     }
 
     public InputHandler getInputHandler()
@@ -55,5 +56,15 @@ public final class Input
     public void setKeyboard(boolean keyboard)
     {
         this.keyboard = keyboard;
+    }
+
+    public boolean isPersistent()
+    {
+        return persistent;
+    }
+
+    public void setPersistent(boolean persistent)
+    {
+        this.persistent = persistent;
     }
 }

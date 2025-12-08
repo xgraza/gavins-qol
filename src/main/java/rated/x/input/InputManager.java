@@ -4,6 +4,7 @@
 
 package rated.x.input;
 
+import org.lwjgl.glfw.GLFW;
 import rated.x.RatedX;
 import rated.x.listener.bus.Listener;
 import rated.x.listener.event.EventKeyPress;
@@ -38,7 +39,13 @@ public final class InputManager
                 continue;
             }
             final InputHandler handler = input.getInputHandler();
-            handler.setEnabled(!handler.isEnabled());
+            if (event.action() == GLFW.GLFW_PRESS)
+            {
+                handler.setEnabled(!handler.isEnabled());
+            } else if (event.action() == GLFW.GLFW_RELEASE && !input.isPersistent())
+            {
+                handler.setEnabled(false);
+            }
         }
     }
 

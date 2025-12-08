@@ -7,7 +7,6 @@ package rated.x.mixin.mixins;
 import net.minecraft.client.KeyboardHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.input.KeyEvent;
-import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -31,15 +30,15 @@ public final class MixinKeyboardHandler
     @Inject(method = "keyPress", at = @At("HEAD"))
     private void hook_ratedX$keyPress(
             final long handle,
-            final int type,
+            final int action,
             final KeyEvent event,
             final CallbackInfo info)
     {
-        if (handle != minecraft.getWindow().handle() || type != GLFW.GLFW_PRESS)
+        if (handle != minecraft.getWindow().handle())
         {
             return;
         }
         RatedX.EVENT_BUS.dispatch(new EventKeyPress(event.key(),
-                event.modifiers(), event.scancode()));
+                event.modifiers(), event.scancode(), action));
     }
 }
