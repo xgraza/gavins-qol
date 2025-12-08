@@ -3,6 +3,7 @@
   "package": "rated.x.mixin.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "MixinClientPacketListener",
     "MixinGui",
     "MixinKeyboardHandler",
     "MixinLightTexture",

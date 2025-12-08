@@ -58,6 +58,7 @@ public final class ModuleManager
         addModule(new ModuleClickGUI());
         addModule(new ModuleCompass());
         addModule(new ModuleCoordinates());
+        addModule(new ModuleDamageIndicator());
         addModule(new ModuleFPS());
         addModule(new ModuleFullbright());
         addModule(new ModulePing());
