@@ -4,6 +4,7 @@
 
 package rated.x.input;
 
+import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
 import rated.x.RatedX;
 import rated.x.listener.bus.Listener;
@@ -18,6 +19,8 @@ import java.util.List;
  */
 public final class InputManager
 {
+    private static final Minecraft MC = Minecraft.getInstance();
+
     private final List<Input> inputList = new ArrayList<>();
 
     public void init()
@@ -28,6 +31,10 @@ public final class InputManager
     @Listener
     public void onKeyPress(final EventKeyPress event)
     {
+        if (event.keyCode() == GLFW.GLFW_KEY_UNKNOWN || MC.screen != null)
+        {
+            return;
+        }
         for (final Input input : inputList)
         {
             if (!input.isKeyboard() || input.getKey() != event.keyCode())
