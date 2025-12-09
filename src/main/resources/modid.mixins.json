@@ -3,7 +3,9 @@
   "package": "rated.x.mixin.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "MixinCamera",
     "MixinClientPacketListener",
+    "MixinEntity",
     "MixinGui",
     "MixinKeyboardHandler",
     "MixinLightTexture",

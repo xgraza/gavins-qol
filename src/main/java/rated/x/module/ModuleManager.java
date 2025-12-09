@@ -10,6 +10,7 @@ import rated.x.config.ConfigManager;
 import rated.x.gui.GUIManager;
 import rated.x.gui.GUIModule;
 import rated.x.input.InputManager;
+import rated.x.module.impl.player.ModuleFreeLook;
 import rated.x.module.impl.player.ModuleSprint;
 import rated.x.module.impl.tweaks.ModuleNoToasts;
 import rated.x.module.impl.visual.*;
@@ -52,6 +53,7 @@ public final class ModuleManager
 
     private void addModules()
     {
+        addModule(ModuleFreeLook.INSTANCE);
         addModule(new ModuleSprint());
         addModule(new ModuleNoToasts());
         addModule(new ModuleArmor());
