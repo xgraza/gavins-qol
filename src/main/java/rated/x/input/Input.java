@@ -11,21 +11,26 @@ package rated.x.input;
 public final class Input
 {
     private final InputHandler inputHandler;
+    private final String id;
     private int key, modifiers;
     private boolean keyboard = true, persistent = true;
 
-    public Input(final InputHandler handler, int key, int modifiers, boolean keyboard, boolean persistent)
+    public Input(final InputHandler handler, final String id, int key, int modifiers)
     {
+        this.id = id;
         this.inputHandler = handler;
         this.key = key;
         this.modifiers = modifiers;
-        this.keyboard = keyboard;
-        this.persistent = persistent;
     }
 
     public InputHandler getInputHandler()
     {
         return inputHandler;
+    }
+
+    public String getID()
+    {
+        return id;
     }
 
     public int getKey()

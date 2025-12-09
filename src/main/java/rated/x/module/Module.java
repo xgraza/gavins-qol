@@ -37,7 +37,7 @@ public class Module extends PropertyContainer implements InputHandler, IConfig
         {
             throw new RuntimeException("@ModuleManifest required!");
         }
-        input = new Input(this, GLFW.GLFW_KEY_UNKNOWN, -1, true, true);
+        input = new Input(this, manifest.name(), GLFW.GLFW_KEY_UNKNOWN, -1);
     }
 
     @Override

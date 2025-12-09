@@ -9,7 +9,9 @@ import org.lwjgl.glfw.GLFW;
 import rated.x.RatedX;
 import rated.x.listener.bus.Listener;
 import rated.x.listener.event.EventKeyPress;
+import rated.x.util.FileUtil;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +24,13 @@ public final class InputManager
     private static final Minecraft MC = Minecraft.getInstance();
 
     private final List<Input> inputList = new ArrayList<>();
+    private File keybindsFileLocation;
 
     public void init()
     {
+        keybindsFileLocation = new File(FileUtil.ROOT, "inputs.json");
+        RatedX.INSTANCE.getConfigManager()
+                .addConfig(new InputConfig(this));
         RatedX.EVENT_BUS.subscribe(this);
     }
 
@@ -59,5 +65,15 @@ public final class InputManager
     public void registerInput(final Input input)
     {
         inputList.add(input);
+    }
+
+    public List<Input> getInputs()
+    {
+        return inputList;
+    }
+
+    public File getKeybindsFileLocation()
+    {
+        return keybindsFileLocation;
     }
 }
