@@ -2,7 +2,7 @@ package rated.x.module.impl.hud;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.phys.Vec3;
 import rated.x.gui.GUIModule;
@@ -36,12 +36,12 @@ public final class ModuleCoordinates extends GUIModule
                         String.format("Z: %s%.1f%s", ChatFormatting.GRAY, position.z, ChatFormatting.RESET)
                 };
 
-        final ResourceLocation dimension = MC.level.dimension().location();
-        if (BuiltinDimensionTypes.NETHER.location().equals(dimension))
+        final Identifier dimension = MC.level.dimension().identifier();
+        if (BuiltinDimensionTypes.NETHER.identifier().equals(dimension))
         {
             text[0] += ChatFormatting.BLUE + " " + String.format("%.1f", position.x * 8.0);
             text[2] += ChatFormatting.BLUE + " " + String.format("%.1f", position.z * 8.0);
-        } else if (BuiltinDimensionTypes.OVERWORLD.location().equals(dimension))
+        } else if (BuiltinDimensionTypes.OVERWORLD.identifier().equals(dimension))
         {
             text[0] += ChatFormatting.RED + " " + String.format("%.1f", position.x / 8.0);
             text[2] += ChatFormatting.RED + " " + String.format("%.1f", position.z / 8.0);

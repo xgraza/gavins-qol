@@ -32,7 +32,7 @@ final class CategoryTab extends Drawable
         graphics.fill((int) x, (int) y, (int) (x + width), (int) (y + height), BACKGROUND_COLOR);
         if (selected)
         {
-            graphics.submitOutline((int) x, (int) y, (int) (width), (int) (height), 0xFFAAAAAA);
+            graphics.renderOutline((int) x, (int) y, (int) (width), (int) (height), 0xFFAAAAAA);
         }
         graphics.drawString(font, category.getName(), (int) x + 4, (int) y + 6, -1);
     }

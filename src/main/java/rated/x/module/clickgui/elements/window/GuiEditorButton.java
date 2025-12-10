@@ -19,7 +19,7 @@ final class GuiEditorButton extends Drawable
     public void render(GuiGraphics graphics, int mouseX, int mouseY)
     {
         graphics.fill((int) x, (int) y, (int) (x + width), (int) (y + height), BACKGROUND_COLOR);
-        graphics.submitOutline((int) x, (int) y, (int) (width), (int) (height), 0xFFAAAAAA);
+        graphics.renderOutline((int) x, (int) y, (int) (width), (int) (height), 0xFFAAAAAA);
         graphics.drawString(font, "GUI Editor", (int) x + 6, (int) y + 2, -1);
     }
 
