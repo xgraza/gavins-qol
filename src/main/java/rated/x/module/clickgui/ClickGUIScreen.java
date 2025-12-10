@@ -9,7 +9,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import rated.x.RatedX;
-import rated.x.module.clickgui.elements.Window;
+import rated.x.module.clickgui.elements.window.Window;
 
 /**
  * @author xgraza
@@ -17,6 +17,9 @@ import rated.x.module.clickgui.elements.Window;
  */
 public final class ClickGUIScreen extends Screen
 {
+    private static final double WINDOW_WIDTH = 400.0;
+    private static final double WINDOW_HEIGHT = 250.0;
+
     private Window window;
 
     public ClickGUIScreen()
@@ -27,18 +30,21 @@ public final class ClickGUIScreen extends Screen
     @Override
     protected void init()
     {
-        if (window != null)
+        // init is called when the screen is created or resized
+        final int centerWidth = width / 2;
+        final int centerHeight = height / 2;
+
+        final double x = centerWidth - (WINDOW_WIDTH / 2.0);
+        final double y = centerHeight - (WINDOW_HEIGHT / 2.0);
+
+        if (window == null)
         {
-            return;
+            window = new Window(x, y, WINDOW_WIDTH, WINDOW_HEIGHT);
+        } else
+        {
+            window.setX(x);
+            window.setY(y);
         }
-        // halfs
-        int hw = width / 2;
-        int hh = height / 2;
-
-        double width = 400;
-        double height = 250;
-
-        window = new Window(hw - (width / 2.0), hh - (height / 2.0), width, height);
     }
 
     @Override

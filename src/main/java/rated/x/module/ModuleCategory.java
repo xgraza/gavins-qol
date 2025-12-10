@@ -14,8 +14,7 @@ public enum ModuleCategory
     PLAYER("Player"),
     // TWEAKS("Tweaks"),
     VISUAL("Visual"),
-
-    DEFAULT("Default");
+    HIDDEN("Hidden");
 
     private final String name;
 

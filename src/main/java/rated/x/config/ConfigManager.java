@@ -55,7 +55,7 @@ public final class ConfigManager
                 LOGGER.error("Failed to save", e);
             }
         }
-        LOGGER.error("Saved {}/{}", saved, configList.size());
+        LOGGER.info("Saved {}/{}", saved, configList.size());
     }
 
     public void load()

@@ -8,7 +8,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import org.lwjgl.glfw.GLFW;
 import rated.x.input.Input;
 import rated.x.module.Module;
-import rated.x.module.clickgui.Component;
+import rated.x.module.clickgui.Drawable;
 import rated.x.util.InputUtil;
 
 import java.awt.Color;
@@ -17,7 +17,7 @@ import java.awt.Color;
  * @author xgraza
  * @since 1.0.0
  */
-public final class ModuleButton extends Component
+public final class ModuleButton extends Drawable
 {
     private static final int BACKGROUND_COLOR = new Color(30, 30, 30).getRGB();
     private static final int KEY_BACKGROUND_COLOR = new Color(10, 10, 10).getRGB();
@@ -25,9 +25,8 @@ public final class ModuleButton extends Component
 
     private final rated.x.module.Module module;
 
-    public ModuleButton(final Module module, double x, double y, double width, double height)
+    public ModuleButton(final Module module)
     {
-        super(x, y, width, height);
         this.module = module;
     }
 

@@ -13,21 +13,24 @@ import rated.x.gui.IComponent;
  * @author xgraza
  * @since 1.0.0
  */
-public abstract class Component implements IComponent
+public abstract class Drawable implements IComponent
 {
     protected static final Minecraft MC = Minecraft.getInstance();
 
     protected double x, y, width, height;
-
     protected final Font font;
 
-    public Component(double x, double y, double width, double height)
+    public Drawable(double x, double y, double width, double height)
     {
+        this();
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+    }
 
+    public Drawable()
+    {
         font = MC.font;
     }
 

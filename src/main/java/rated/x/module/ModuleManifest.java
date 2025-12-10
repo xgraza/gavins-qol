@@ -16,7 +16,7 @@ public @interface ModuleManifest
 {
     String name();
 
-    ModuleCategory category() default ModuleCategory.DEFAULT;
+    ModuleCategory category() default ModuleCategory.HIDDEN;
 
     String description() default Module.NO_DESCRIPTION;
 }
