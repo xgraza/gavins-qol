@@ -64,7 +64,7 @@ public final class ModuleManager
         addModule(new ModuleFPS());
         addModule(new ModulePing());
         // Player
-        addModule(new ModuleFreeLook());
+        addModule(ModuleFreeLook.INSTANCE);
         addModule(new ModuleSprint());
         // Visual
         addModule(new ModuleClickGUI());
