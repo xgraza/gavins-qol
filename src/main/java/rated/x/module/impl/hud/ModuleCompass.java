@@ -1,4 +1,4 @@
-package rated.x.module.impl.visual;
+package rated.x.module.impl.hud;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
@@ -13,7 +13,7 @@ import rated.x.module.property.Property;
  */
 @ModuleManifest(name = "Compass",
         description = "Shows a compass for navigation on screen",
-        category = ModuleCategory.VISUAL)
+        category = ModuleCategory.HUD)
 public final class ModuleCompass extends GUIModule
 {
     private static final double RADIUS = 25.0;

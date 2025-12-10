@@ -1,4 +1,4 @@
-package rated.x.module.impl.visual;
+package rated.x.module.impl.hud;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
@@ -15,7 +15,7 @@ import rated.x.module.ModuleManifest;
  */
 @ModuleManifest(name = "Coordinates",
         description = "Displays your current coordinates",
-        category = ModuleCategory.VISUAL)
+        category = ModuleCategory.HUD)
 public final class ModuleCoordinates extends GUIModule
 {
     @Override

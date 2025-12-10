@@ -2,7 +2,7 @@
  * Copyright (c) xgraza 2025
  */
 
-package rated.x.module.impl.visual;
+package rated.x.module.impl.hud;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.InteractionHand;
@@ -24,7 +24,7 @@ import java.util.List;
  */
 @ModuleManifest(name = "Armor",
         description = "Displays armor and their durability values",
-        category = ModuleCategory.VISUAL)
+        category = ModuleCategory.HUD)
 public final class ModuleArmor extends GUIModule
 {
     @Override

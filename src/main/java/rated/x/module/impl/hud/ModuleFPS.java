@@ -1,4 +1,4 @@
-package rated.x.module.impl.visual;
+package rated.x.module.impl.hud;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
@@ -12,7 +12,7 @@ import rated.x.module.ModuleManifest;
  */
 @ModuleManifest(name = "FPS",
         description = "Displays the Frames Per Second (FPS) counter",
-        category = ModuleCategory.VISUAL)
+        category = ModuleCategory.HUD)
 public final class ModuleFPS extends GUIModule
 {
     @Override

@@ -2,7 +2,7 @@
  * Copyright (c) xgraza 2025
  */
 
-package rated.x.module.impl.tweaks;
+package rated.x.module.impl.visual;
 
 import rated.x.listener.bus.Listener;
 import rated.x.listener.event.EventRenderToasts;
@@ -16,7 +16,7 @@ import rated.x.module.ModuleManifest;
  */
 @ModuleManifest(name = "NoToasts",
         description = "Removes persistent toasts from your HUD",
-        category = ModuleCategory.TWEAKS)
+        category = ModuleCategory.VISUAL)
 public final class ModuleNoToasts extends Module
 {
     @Listener

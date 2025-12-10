@@ -1,4 +1,4 @@
-package rated.x.module.impl.visual;
+package rated.x.module.impl.hud;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
@@ -14,7 +14,7 @@ import java.util.UUID;
  */
 @ModuleManifest(name = "Ping",
         description = "Displays your latency to the server (or 0ms in singleplayer)",
-        category = ModuleCategory.VISUAL)
+        category = ModuleCategory.HUD)
 public final class ModulePing extends GUIModule
 {
     @Override

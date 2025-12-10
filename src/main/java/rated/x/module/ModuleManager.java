@@ -10,10 +10,13 @@ import rated.x.config.ConfigManager;
 import rated.x.gui.GUIManager;
 import rated.x.gui.GUIModule;
 import rated.x.input.InputManager;
+import rated.x.module.impl.hud.*;
 import rated.x.module.impl.player.ModuleFreeLook;
 import rated.x.module.impl.player.ModuleSprint;
-import rated.x.module.impl.tweaks.ModuleNoToasts;
-import rated.x.module.impl.visual.*;
+import rated.x.module.impl.visual.ModuleClickGUI;
+import rated.x.module.impl.visual.ModuleFullbright;
+import rated.x.module.impl.visual.ModuleNoToasts;
+import rated.x.module.impl.visual.ModuleZoom;
 import rated.x.util.FileUtil;
 
 import java.io.File;
@@ -53,18 +56,22 @@ public final class ModuleManager
 
     private void addModules()
     {
-        addModule(ModuleFreeLook.INSTANCE);
-        addModule(new ModuleSprint());
-        addModule(new ModuleNoToasts());
+        // HUD
         addModule(new ModuleArmor());
-        addModule(new ModuleClickGUI());
         addModule(new ModuleCompass());
         addModule(new ModuleCoordinates());
         addModule(new ModuleDamageIndicator());
         addModule(new ModuleFPS());
-        addModule(new ModuleFullbright());
         addModule(new ModulePing());
+        // Player
+        addModule(new ModuleFreeLook());
+        addModule(new ModuleSprint());
+        // Visual
+        addModule(new ModuleClickGUI());
+        addModule(new ModuleFullbright());
+        addModule(new ModuleNoToasts());
         addModule(new ModuleZoom());
+
         LOGGER.info("Registered {} modules", moduleList.size());
     }
 

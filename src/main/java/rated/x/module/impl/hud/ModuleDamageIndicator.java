@@ -1,4 +1,4 @@
-package rated.x.module.impl.visual;
+package rated.x.module.impl.hud;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.damagesource.DamageSource;
@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @ModuleManifest(name = "DamageIndicator",
         description = "Shows from which direction you were damaged from with arrows around the crosshair",
-        category = ModuleCategory.VISUAL)
+        category = ModuleCategory.HUD)
 public final class ModuleDamageIndicator extends Module
 {
     private final Map<Damage, Long> damageSourceDecayTimeMap = new ConcurrentHashMap<>();

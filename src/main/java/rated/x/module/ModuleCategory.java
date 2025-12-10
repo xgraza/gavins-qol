@@ -10,8 +10,9 @@ package rated.x.module;
  */
 public enum ModuleCategory
 {
+    HUD("HUD"),
     PLAYER("Player"),
-    TWEAKS("Tweaks"),
+    // TWEAKS("Tweaks"),
     VISUAL("Visual"),
 
     DEFAULT("Default");
