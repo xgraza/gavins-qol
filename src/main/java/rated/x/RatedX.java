@@ -9,6 +9,7 @@ import rated.x.gui.GUIManager;
 import rated.x.input.InputManager;
 import rated.x.listener.bus.EventBus;
 import rated.x.module.ModuleManager;
+import rated.x.waypoint.WaypointManager;
 
 /**
  * @author xgraza
@@ -24,6 +25,7 @@ public enum RatedX
     private final InputManager inputManager = new InputManager();
     private final GUIManager guiManager = new GUIManager();
     private final ModuleManager moduleManager = new ModuleManager();
+    private final WaypointManager waypointManager = new WaypointManager();
 
     void init()
     {
@@ -31,6 +33,7 @@ public enum RatedX
         inputManager.init();
         guiManager.init();
         moduleManager.init(configManager, inputManager, guiManager);
+        waypointManager.init();
 
         configManager.load();
     }
@@ -53,5 +56,10 @@ public enum RatedX
     public ModuleManager getModuleManager()
     {
         return moduleManager;
+    }
+
+    public WaypointManager getWaypointManager()
+    {
+        return waypointManager;
     }
 }

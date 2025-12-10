@@ -6,6 +6,7 @@
     "MixinCamera",
     "MixinClientPacketListener",
     "MixinEntity",
+    "MixinGameRenderer",
     "MixinGui",
     "MixinKeyboardHandler",
     "MixinLightTexture",
