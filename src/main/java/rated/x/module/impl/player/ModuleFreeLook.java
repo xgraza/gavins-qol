@@ -1,8 +1,10 @@
 package rated.x.module.impl.player;
 
+import net.minecraft.client.CameraType;
 import net.minecraft.util.Mth;
 import rated.x.listener.bus.Listener;
 import rated.x.listener.event.EventEntityTurn;
+import rated.x.listener.event.EventTick;
 import rated.x.module.Module;
 import rated.x.module.ModuleCategory;
 import rated.x.module.ModuleManifest;
@@ -26,6 +28,20 @@ public final class ModuleFreeLook extends Module
     {
         super.onDisable();
         overrideRotate = false;
+    }
+
+    @Listener
+    public void onTick(final EventTick event)
+    {
+        if (!overrideRotate || MC.options == null)
+        {
+            return;
+        }
+        final CameraType cameraType = MC.options.getCameraType();
+        if (cameraType.equals(CameraType.THIRD_PERSON_FRONT))
+        {
+            MC.options.setCameraType(CameraType.FIRST_PERSON);
+        }
     }
 
     @Listener
