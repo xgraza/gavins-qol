@@ -5,6 +5,7 @@ import net.minecraft.util.Mth;
 import rated.x.listener.bus.Listener;
 import rated.x.listener.event.EventEntityTurn;
 import rated.x.listener.event.EventTick;
+import rated.x.module.MayBeConsideredACheat;
 import rated.x.module.Module;
 import rated.x.module.ModuleCategory;
 import rated.x.module.ModuleManifest;
@@ -16,6 +17,7 @@ import rated.x.module.ModuleManifest;
 @ModuleManifest(name = "FreeLook",
         description = "Allows you to freely move your camera around your player",
         category = ModuleCategory.PLAYER)
+@MayBeConsideredACheat
 public final class ModuleFreeLook extends Module
 {
     public static final ModuleFreeLook INSTANCE = new ModuleFreeLook();

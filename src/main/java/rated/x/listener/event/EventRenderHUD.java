@@ -11,6 +11,6 @@ import net.minecraft.client.gui.GuiGraphics;
  * @author xgraza
  * @since 1.0.0
  */
-public record EventRenderHUD(GuiGraphics graphics, int screenWidth, int screenHeight)
+public record EventRenderHUD(GuiGraphics graphics, float tickDelta, int screenWidth, int screenHeight)
 {
 }

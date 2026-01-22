@@ -27,6 +27,7 @@ public class Module extends PropertyContainer implements InputHandler, IConfig
     protected static final Minecraft MC = Minecraft.getInstance();
 
     private final ModuleManifest manifest;
+    private final boolean mayBeConsideredACheat;
     private final Input input;
     private boolean enabled;
 
@@ -37,6 +38,7 @@ public class Module extends PropertyContainer implements InputHandler, IConfig
         {
             throw new RuntimeException("@ModuleManifest required!");
         }
+        mayBeConsideredACheat = getClass().isAnnotationPresent(MayBeConsideredACheat.class);
         input = new Input(this, manifest.name(), GLFW.GLFW_KEY_UNKNOWN, -1);
     }
 
@@ -80,6 +82,11 @@ public class Module extends PropertyContainer implements InputHandler, IConfig
     public ModuleManifest getManifest()
     {
         return manifest;
+    }
+
+    public boolean isMayBeConsideredACheat()
+    {
+        return mayBeConsideredACheat;
     }
 
     @Override

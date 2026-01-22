@@ -38,6 +38,6 @@ public final class MixinGui
             return;
         }
         RatedX.EVENT_BUS.dispatch(new EventRenderHUD(
-                guiGraphics, guiGraphics.guiWidth(), guiGraphics.guiWidth()));
+                guiGraphics, deltaTracker.getGameTimeDeltaTicks(), guiGraphics.guiWidth(), guiGraphics.guiWidth()));
     }
 }

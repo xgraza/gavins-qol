@@ -22,8 +22,9 @@ public final class ModuleCompass extends GUIModule
     private static final String[] DIRECTIONS_ALL = {
             "W", "SW", "S", "SE", "E", "NE", ChatFormatting.RED + "N", "NW" };
 
-    private final Property<Boolean> allDirectionsProperty = new Property<>(
-            "All Directions", false);
+    private final Property<Boolean> allDirectionsProperty = new Property<Boolean>("All Directions")
+            .setValue(false)
+            .setDescription("If to show the directions between the cardinal directions");
 
     @Override
     public void render(final GuiGraphics graphics,

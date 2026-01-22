@@ -60,7 +60,6 @@ public final class ModuleManager
         addModule(new ModuleArmor());
         addModule(new ModuleCompass());
         addModule(new ModuleCoordinates());
-        addModule(new ModuleDamageIndicator());
         addModule(new ModuleFPS());
         addModule(new ModulePing());
         // Player
